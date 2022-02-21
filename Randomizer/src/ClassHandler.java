@@ -25,7 +25,7 @@ public class ClassHandler {
 	}
 
 	public String initSubClass() {
-		String[] allSubs = reader.runReadFile(bigClass + "Sub").split("-");
+		String[] allSubs = reader.runReadFile(bigClass+"/subClass").split("-");
 		int randIndex = rand.nextInt(allSubs.length);
 		return allSubs[randIndex];
 	}
