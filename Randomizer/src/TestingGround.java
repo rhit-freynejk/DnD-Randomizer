@@ -10,7 +10,7 @@ public class TestingGround {
 			int lvl = setClass.initStartLevel();
 			String bigClass = setClass.initBigClass();
 			String subClass = setClass.initSubClass();
-			System.out.println("This Class gets a subclass at " + setClass.subClassLevel);
+			System.out.println("This Class gets a subclass at " + setClass.getSubClassLevel());
 			System.out.println("You Rolled A Level " + lvl + " " + subClass + " " + bigClass);
 			System.out.println("");
 		}

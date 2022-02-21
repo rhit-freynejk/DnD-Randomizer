@@ -6,9 +6,9 @@ public class ClassHandler {
 	String bigClass;
 	private Reader reader;
 	private Random rand;
-	int subClassLevel;
+	private int subClassLevel;
 	private LevelHandler levelHandler;
-	int atLevel;
+	private int atLevel;
 
 	public ClassHandler() {
 		this.bigClass = "";
@@ -44,6 +44,9 @@ public class ClassHandler {
 
 	public void setSubClassLevel(int intake) {
 		this.subClassLevel = intake;
+	}
+	public int getSubClassLevel() {
+		return this.subClassLevel;
 	}
 
 	public int initStartLevel() {
