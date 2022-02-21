@@ -16,9 +16,9 @@ public class MainApp {
 		styles = new ArrayList<String>(0);
 	}
 	
-	public void popClass(int level) {
-		bigClass = 
-		subClass
+	public void setClass(int level) {
+//		bigClass = 
+//		subClass = 
 	}
 
 }
