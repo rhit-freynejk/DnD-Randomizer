@@ -20,12 +20,14 @@ public class ClassHandler {
 		int randIndex = rand.nextInt(allClasses.length);
 		this.subClassLevel = allClasses[randIndex].charAt(0);
 		String output = allClasses[randIndex].substring(1);
+		this.bigClass = output;
 		return output;
 
 	}
 
 	public String initSubClass() {
-		String[] allSubs = reader.runReadFile(bigClass+"/subClass").split("-");
+		String inputFile = bigClass +"/subClass";
+		String[] allSubs = reader.runReadFile(inputFile).split("-");
 		int randIndex = rand.nextInt(allSubs.length);
 		return allSubs[randIndex];
 	}
