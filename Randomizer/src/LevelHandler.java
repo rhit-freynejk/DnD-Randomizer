@@ -18,7 +18,7 @@ public class LevelHandler {
 	}
 	LevelHandler(){
 		this.bigClass = "";
-		this.charLevel = 1;
+		this.charLevel = 0;
 		this.rand = new Random();
 	}
 
