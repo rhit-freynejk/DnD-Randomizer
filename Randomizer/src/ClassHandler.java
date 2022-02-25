@@ -23,8 +23,8 @@ public class ClassHandler {
 
 		String[] allClasses = reader.runReadFile("allClass").split("-");
 		int randIndex = rand.nextInt(allClasses.length);
-		String classLevel = String.valueOf(allClasses[randIndex].charAt(0));
-		setSubClassLevel(Integer.parseInt(classLevel));
+		String cl = String.valueOf(allClasses[randIndex].charAt(0));
+		this.subClassLevel = (Integer.parseInt(cl));
 		String output = allClasses[randIndex].substring(1);
 		this.bigClass = output;
 		return output;
