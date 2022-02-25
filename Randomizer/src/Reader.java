@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Reader {
@@ -31,5 +32,14 @@ public class Reader {
 	public String runReadFile(String toRead) {
 		String inputFile = "characterComponent/" + toRead;
 		return readFile(inputFile);
+	}
+	
+	public ArrayList<String> runReadFileWithSplit(String toRead){
+		ArrayList<String> output = new ArrayList<String>();
+		String[] toAL = runReadFile(toRead).split("-");
+		for (int i = 0; i < toAL.length; i++) {
+			output.add(toAL[i]);
+		}
+		return output;
 	}
 }
