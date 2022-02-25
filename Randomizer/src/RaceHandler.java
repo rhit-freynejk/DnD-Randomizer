@@ -23,38 +23,38 @@ public class RaceHandler {
 
 	public String initRace() {
 
-		String[] allRaces = reader.runReadFile("allRace").split("-");
+		String[] allRaces = reader.runReadFile("allRaces").split("-");
 		int randIndex = rand.nextInt(allRaces.length);
-		this.raceData = allRaces[randIndex];
-		parseRaceData();
+		this.race = allRaces[randIndex];
+		// parseRaceData();
 		return race;
 	}
 
 	public String initSubRace() {
 		String subRace = " ";
 		int randIndex = rand.nextInt(subRaces.size());
-			subRace = subRaces.get(randIndex);
+		subRace = subRaces.get(randIndex);
 		return subRace;
 	}
 
-	public void parseRaceData() {
-		int breakIndex = 0;
-		int subClassIndex = 0;
-		for (int i = 0; i < raceData.length(); i++) {
-			if (raceData.charAt(i) == '|') {
-				breakIndex = i;
-			}
-
-			else if (raceData.charAt(i) == '{') {
-				subClassIndex = i;
-			}
-		}
-		this.race = raceData.substring(breakIndex, subClassIndex);
-		String[] statMods = raceData.substring(0, breakIndex).split("|");
-		this.statMods = statMods;
-		String[] subraces = raceData.substring(subClassIndex).split("/");
-		for (int i = 0; i < subraces.length; i++) {
-			this.subRaces.add(subraces[i]);
-		}
-	}
+//	public void parseRaceData() {
+//		int breakIndex = 0;
+//		int subClassIndex = 0;
+//		for (int i = 0; i < raceData.length(); i++) {
+//			if (raceData.charAt(i) == '|') {
+//				breakIndex = i;
+//			}
+//
+//			else if (raceData.charAt(i) == '{') {
+//				subClassIndex = i;
+//			}
+//		}
+//		this.race = raceData.substring(breakIndex, subClassIndex);
+//		String[] statMods = raceData.substring(0, breakIndex).split("|");
+//		this.statMods = statMods;
+//		String[] subraces = raceData.substring(subClassIndex).split("/");
+//		for (int i = 0; i < subraces.length; i++) {
+//			this.subRaces.add(subraces[i]);
+//		}
+//	}
 }

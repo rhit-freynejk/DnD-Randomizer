@@ -11,11 +11,13 @@ public class StatHandler {
 	int intel;
 	int cha;
 	private Random rand;
+	private Reader reader;
 
 	public StatHandler() {
 
 		this.statList = new ArrayList<Integer>();
 		this.rand = new Random();
+		this.reader = new Reader();
 
 	}
 
@@ -53,6 +55,15 @@ public class StatHandler {
 		setWis(allStats.get(3));
 		setIntel(allStats.get(4));
 		setCha(allStats.get(5));
+	}
+
+	public void addAll(int[] toAdd) {
+		this.str += toAdd[0];
+		this.dex += toAdd[1];
+		this.con += toAdd[2];
+		this.wis += toAdd[3];
+		this.intel += toAdd[4];
+		this.cha += toAdd[5];
 	}
 
 	public void setAll() {
@@ -102,5 +113,25 @@ public class StatHandler {
 			}
 		}
 		setAll(statList);
+	}
+
+	public void doRaceStats(String race) {
+		String path = "Races/" + race + "/StatMods";
+		String[] newStats = reader.runReadFile(path).split("-");
+		int numASI = 0;
+		if (newStats.length == 7) {
+			numASI = Integer.parseInt(newStats[6]);
+		}
+		int[] toAdd = new int[6];
+		for (int i = 0; i < 6; i++) {
+			toAdd[i] = Integer.parseInt(newStats[i]);
+		}
+		for (int i = 0; i < numASI; i++) {
+			int ind = rand.nextInt(6);
+			if (statList.get(ind) < 20) {
+				toAdd[ind] += 1;
+			}
+			addAll(toAdd);
+		}
 	}
 }

@@ -35,7 +35,7 @@ public class ClassHandler {
 		if (this.subClassLevel > this.atLevel) {
 			return "";
 		} else {
-			String inputFile = bigClass + "/subClass";
+			String inputFile ="/Classes/" + bigClass + "/subClass";
 			String[] allSubs = reader.runReadFile(inputFile).split("-");
 			int randIndex = rand.nextInt(allSubs.length);
 			return allSubs[randIndex];
