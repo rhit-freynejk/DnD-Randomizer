@@ -12,11 +12,7 @@ public class MiscHandler {
 		this.reader = new Reader();
 
 	}
-//	public String randLanguage() {
-//		String[] allLang = reader.runReadFile("allLang").split("-");
-//		int randIndex = rand.nextInt(allLang.length);
-//		String output = allLang[randIndex]
-//	}
+
 
 	public ArrayList<String> randRecursiveChoiceHelper(int count, ArrayList<String> toPop,
 			ArrayList<String> masterList) {
@@ -37,5 +33,6 @@ public class MiscHandler {
 
 		return randRecursiveChoiceHelper(count, output, masterList);
 	}
+	
 
 }

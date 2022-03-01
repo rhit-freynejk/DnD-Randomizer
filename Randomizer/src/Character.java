@@ -35,4 +35,10 @@ public class Character {
 		System.out.println();
 	}
 
+	
+	//Debug Commands
+	
+	public void displaySortedStats() {
+		System.out.println(stats.statSort());
+	}
 }

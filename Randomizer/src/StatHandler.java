@@ -1,5 +1,6 @@
 import java.util.Random;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class StatHandler {
 
@@ -134,4 +135,11 @@ public class StatHandler {
 			addAll(toAdd);
 		}
 	}
+	
+	public ArrayList<Integer> statSort() {
+		ArrayList<Integer> sortedStats = this.statList;
+		Collections.sort(sortedStats);
+		return sortedStats;
+	}
+
 }
