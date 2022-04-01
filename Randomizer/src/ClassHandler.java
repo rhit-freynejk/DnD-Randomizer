@@ -9,6 +9,7 @@ public class ClassHandler {
 	private int subClassLevel;
 	private LevelHandler levelHandler;
 	private int atLevel;
+	private int[] dataToSave = new int[3];
 
 	public ClassHandler() {
 		this.bigClass = "";
@@ -27,17 +28,23 @@ public class ClassHandler {
 		this.subClassLevel = (Integer.parseInt(cl));
 		String output = allClasses[randIndex].substring(1);
 		this.bigClass = output;
+		dataToSave[0] = randIndex;
 		return output;
 
 	}
 
 	public String initSubClass() {
 		if (this.subClassLevel > this.atLevel) {
+			dataToSave[1] = 15;
 			return "";
 		} else {
 			String inputFile ="/Classes/" + bigClass + "/subClass";
 			String[] allSubs = reader.runReadFile(inputFile).split("-");
 			int randIndex = rand.nextInt(allSubs.length);
+//			for (int i = 0; i < allSubs.length; i++) {
+//				System.out.println(allSubs[i]);
+//			}
+			dataToSave[1] = randIndex;
 			return allSubs[randIndex];
 		}
 	}
@@ -51,7 +58,19 @@ public class ClassHandler {
 
 	public int initStartLevel() {
 		this.atLevel = levelHandler.initStartLevel();
+		dataToSave[2] = atLevel;
 		return levelHandler.initStartLevel();
 	}
+	public String saveData() {
+		String save = " ";
+		for (int data : dataToSave) {
+			String tempData = Integer.toHexString(data) + "/";
+			save += tempData;
+		}
+		System.out.println(save);
+		return save;
+	}
+
+	
 
 }

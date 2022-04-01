@@ -2,11 +2,11 @@
 public class Character {
 
 	private ClassHandler setClass;
-	private StatHandler stats;
+	StatHandler stats;
 	private String bigClass;
 	private String subClass;
 	private int level;
-	private RaceHandler raceHandler = new RaceHandler();
+	RaceHandler raceHandler = new RaceHandler();
 	private String race;
 
 	public Character() {
@@ -26,6 +26,17 @@ public class Character {
 		stats.doASI(level);
 
 	}
+	
+	public void rerollChar() {
+		this.race = raceHandler.initRace();
+		stats.setAll(stats.initStatList());
+		this.bigClass = setClass.initBigClass();
+		this.subClass = setClass.initSubClass();
+		this.level = setClass.initStartLevel();
+		
+		stats.doRaceStats(race);
+		stats.doASI(level);
+	}
 
 	public void displayChar() {
 		System.out.println("Lvl " + level + " " + race + " " + subClass + " " + bigClass);
@@ -33,6 +44,14 @@ public class Character {
 		System.out.println("Str: " + stats.str + " Dex: " + stats.dex + " Con: " + stats.con);
 		System.out.println("Int: " + stats.intel + " Wis: " + stats.wis + " Cha: " + stats.cha);
 		System.out.println();
+	}
+
+	public ClassHandler getClassHandler(){
+		return this.setClass;
+	}
+
+	public RaceHandler getRaceHandler(){
+		return this.raceHandler;
 	}
 
 	
